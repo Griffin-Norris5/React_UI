@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import Country from './Country';
-//import State from './State';
+import Country from './Country';
+import State from './State';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.State={currentCountry: ''};
+    this.state={currentCountry: ''};
   }
 
-  handleChange(e) {
-    var country = e.target.value;
-    this.setState({currentCountry: country});
+  handleChange = (e) => {
+    this.setState({currentCountry: e.target.value});
   }
 
   render() {
@@ -23,7 +22,8 @@ class App extends Component {
           <h2>React UI</h2>
         </div>
         <p className="App-intro">
-        
+          <Country handleChange={this.handleChange} />
+          <State currentCountry={this.state.currentCountry} />
         </p>
       </div>
     );

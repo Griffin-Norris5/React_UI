@@ -5,12 +5,28 @@ class Dropdown extends Component {
         return <option value={option.code}>{option.name}</option>
     }
 
+    mySort(options) {
+        options.sort(function(a, b) {
+            var name1=a.name.toUpperCase();
+            var name2=b.name.toUpperCase();
+            if (name1<name2) {
+                return -1;
+            } else if (name1>name2) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        return options;
+    }
+
     render() {
+        var sortedList = this.mySort(this.props.optionsList);
         return (
             <div className='Dropdown'>
-                <select>
-                    <option value='default'>Select an Option:</option>
-                    
+                <select onChange={this.props.handleChange}>
+                    <option value='default' selected>Select an Option:</option>
+                    {sortedList.map(this.createTag)}
                 </select>
             </div>
         );
