@@ -10,7 +10,10 @@ class App extends Component {
     this.State={currentCountry: ''};
   }
 
-  
+  handleChange(e) {
+    var country = e.target.value;
+    this.setState({currentCountry: country});
+  }
 
   render() {
     return (
@@ -20,6 +23,7 @@ class App extends Component {
           <h2>React UI</h2>
         </div>
         <p className="App-intro">
+        
         </p>
       </div>
     );
