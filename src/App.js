@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Country from './Country';
-import State from './State';
+//import Country from './Country';
+//import State from './State';
 
 class App extends Component {
   constructor(props) {
